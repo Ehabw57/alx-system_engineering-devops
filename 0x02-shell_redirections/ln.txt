@@ -13,3 +13,10 @@ gkfdjgkgdsjkdf
 12
 13
 14
+tail-1 ln.txt
+
+12
+13
+14
+tail-1 ln.txt
+
