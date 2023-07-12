@@ -1,16 +1,10 @@
-hi
-hi
-ho
-how
+1
 2
 3
 4
 5
 6
-5
-2
-tail-1 ln.txt
-3
-14
-tail-1 ln.txt
-
+7
+8
+9
+10
