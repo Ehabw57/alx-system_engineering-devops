@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# this script prints best school 10 times
 list="0
 1
 2
