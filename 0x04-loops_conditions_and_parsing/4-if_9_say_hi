@@ -1,10 +1,9 @@
 #!/usr/bin/env bash
-# This script prints "Best School" 10 times
+# This script prints "Best School" 10 times and "Hello" on 9
 
 CONT=0
-MAX=10
 
-until [ $CONT -ge $MAX ]; do
+while [ $CONT -lt 10 ]; do
     echo "Best School"
     
     if [ $CONT -eq 8 ]; then

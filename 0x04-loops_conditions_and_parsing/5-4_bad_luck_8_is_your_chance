@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+# This script iterat 10 times
+# displays bad luck for the 4th loop iteration
+# displays good luck for the 8th loop iteration
+# displays Best School for the other iterations
+
+CONT=0
+
+while [ $CONT -lt 10 ]; do
+
+    if [ $CONT -eq 3 ]; then
+        echo "bad luck"
+
+    elif [ $CONT -eq 7 ]; then
+        echo "good luck"
+
+    else
+       echo "Best School"
+    fi
+    
+    CONT=$((CONT + 1))
+done
