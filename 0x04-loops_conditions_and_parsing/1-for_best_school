@@ -1,15 +1,5 @@
 #!/usr/bin/env bash
 # this script prints best school 10 times
-list="0
-1
-2
-3
-4
-5
-6
-7
-8
-9"
-for _ in $list; do
+for _ in {0..9}; do
     echo "Best School" 
 done

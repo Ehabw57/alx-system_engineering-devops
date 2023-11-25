@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# this script prints best school 10 times
+CONT=0
+MAX=10
+while [ $CONT -lt $MAX ]; do
+    echo "Best School"
+    CONT=$((CONT + 1))
+done
+
