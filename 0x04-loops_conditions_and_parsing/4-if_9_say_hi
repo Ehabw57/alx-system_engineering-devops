@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+# This script prints "Best School" 10 times
+
+CONT=0
+MAX=10
+
+until [ $CONT -ge $MAX ]; do
+    echo "Best School"
+    
+    if [ $CONT -eq 8 ]; then
+        echo "Hello"
+    fi
+
+    CONT=$((CONT + 1))
+done
