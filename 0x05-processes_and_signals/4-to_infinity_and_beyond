@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # infint echo script
-while [ 1=1 ]; do
+while [ "$HOME" = "$HOME" ]; do
 echo "To infinity and beyond"
 sleep 2
 done
