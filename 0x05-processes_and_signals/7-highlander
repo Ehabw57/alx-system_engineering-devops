@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# invincible echo  To infin... version
+trap 'echo "I am invincible!!!"' SIGTERM 
+while [ "$HOME" = "$HOME" ]; do
+echo "To infinity and beyond"
+sleep 2
+done
