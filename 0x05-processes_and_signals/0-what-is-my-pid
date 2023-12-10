@@ -1,2 +1,3 @@
 #!/usr/bin/env bash
+# a Bash script that shows its personal pid
 echo $$
