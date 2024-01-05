@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# Display all active IPv4 on the machine
+ifconfig | grep -i "inet " | cut -d " " -f 10
