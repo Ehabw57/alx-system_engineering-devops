@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# Start a connetcion on you pc with you pc
+nc -l localhost 98
