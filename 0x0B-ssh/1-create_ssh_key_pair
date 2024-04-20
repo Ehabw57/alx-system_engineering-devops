@@ -1,0 +1,3 @@
+#!/usr/bin/bash
+# Genrate an ssh-key pair name:school bits:4096 pass:betty
+ssh-keygen -b 4096 -t rsa -f school -P 'betty'
