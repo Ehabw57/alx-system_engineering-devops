@@ -1,0 +1,7 @@
+# congiring my client side of the ssh 
+Host 54.237.6.218
+  # No passpher is needed to login
+  BatchMode yes
+  # Sepicify the identity private key file to login
+  IdentityFile ~/.ssh/school
+
