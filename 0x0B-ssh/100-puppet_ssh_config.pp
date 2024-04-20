@@ -1,23 +1,26 @@
-# Configure client side of the server using Puppet
+# Configure ssh client to use private key and refuse password authentication
+
+# Path to SSH client configuration file
+$ssh_config_path = "/etc/ssh/ssh_config"
+
+# Ensure ssh client configuration file exists
 file { 'ssh_config':
   ensure => 'present',
-  path   => 'etc/ssh/ssh_config',
+  path   => $ssh_config_path,
 }
 
-# Turn off password authentication line
-file_line { 'Turn off password auth':
+# Turn off password authentication
+file_line { 'Turn off passwd auth':
   ensure  => 'present',
-  path    => 'etc/ssh/ssh_config',
-  line    => 'BatchMode yes',
+  path    => $ssh_config_path,
+  line    => 'PasswordAuthentication no',
   replace => true,
-  require => File['ssh_config'],
 }
 
-# Declare identity private key file to login
-file_line { 'Declare identity':
+# Declare identity private key file
+file_line { 'Declare identity file':
   ensure  => 'present',
-  path    => 'etc/ssh/ssh_config',
+  path    => $ssh_config_path,
   line    => 'IdentityFile ~/.ssh/school',
   replace => true,
-  require => File['ssh_config'],
 }
