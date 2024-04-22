@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+# Install lovley nginx and change it's root
+sudo apt update -y
+sudo apt-get install -y nginx
+sudo systemctl enable nginx
+sudo ufw allow 'Nginx HTTP'
+sudo chmod -R 755 /var/www
+sudo cp /var/www/html/index.nginx-debian.html /var/www/html/index.nginx.debian.bkp
+echo "Hello World!" > now
+sudo mv now /var/www/html/index.nginx-debian.html
+sudo service nginx restart
