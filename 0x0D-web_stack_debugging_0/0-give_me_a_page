@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+# Install and set apache2 server with a cool page
+apt-get -y update 
+apt-get install -y  apache2
+service apache2 start
+echo "Hello Holberton" > /var/www/html/index.html
