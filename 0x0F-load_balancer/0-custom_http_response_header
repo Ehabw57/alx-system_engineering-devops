@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+# config nginx to add  X-Served-By:hostname in the http respond header
+apt-get update -y
+apt-get install nginx -y
+ufw allow "Nginx HTTP"
+service nginx start
+header="\\\tadd_header X-Served-By \$hostname;"
+nginx_conf="/etc/nginx/sites-available/default"
+sed -i "/server {/a $header" "$nginx_conf"
+nginx -s reload
