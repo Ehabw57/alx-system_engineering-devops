@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+# Install and config HAporxy
+apt-get update -y
+apt-get install -y --no-install-recommends software-properties-common
+add-apt-repository ppa:vbernat/haproxy-2.0 -y
+apt-get install haproxy=2.0.\*
+echo -e "
+fronted http
+        bind *:80
+        use_backend hbnb
+backend hbnb
+        balance roundrobin
+        server web-01 54.237.6.218:80 check
+        server web-02 52.91.182.139:80 check" >> /etc/haproxy/haproxy.cfg
+service haproxy start
