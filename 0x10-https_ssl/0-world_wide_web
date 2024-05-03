@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+# Digs a domain and its subdomains
+declare -a sdomains=(
+[0]="www"
+[1]="lb-01"
+[2]="web-01"
+[3]="web-02"
+)
+
+dig_domain () {
+    if [ $# -lt 1 ]; then
+        echo "Funck you do not mess with me"
+    elif [ $# -eq 1 ]; then
+        for domain in "${sdomains[@]}"
+        do
+            ip=$(dig +noall +answer "$domain"."$1" | awk '{print $5}')
+            r_type=$(dig +noall +answer "$domain"."$1" | awk '{print $4}')
+            echo "The subdomain $domain is a $r_type record and points to $ip"
+        done
+    else
+         ip=$(dig +noall +answer "$2"."$1" | awk '{print $5}')
+         r_type=$(dig +noall +answer "$2"."$1" | awk '{print $4}')
+         echo "The subdomain $2 is a $r_type record and points to $ip"
+    fi
+}
+
+dig_domain $1 $2
+
