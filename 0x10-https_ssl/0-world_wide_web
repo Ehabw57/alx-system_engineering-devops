@@ -8,21 +8,17 @@ declare -a sdomains=(
 )
 
 dig_domain () {
-    if [ $# -lt 1 ]; then
-        echo "Funck you do not mess with me"
-    elif [ $# -eq 1 ]; then
-        for domain in "${sdomains[@]}"
-        do
-            ip=$(dig +noall +answer "$domain"."$1" | awk '{print $5}')
-            r_type=$(dig +noall +answer "$domain"."$1" | awk '{print $4}')
-            echo "The subdomain $domain is a $r_type record and points to $ip"
-        done
-    else
-         ip=$(dig +noall +answer "$2"."$1" | awk '{print $5}')
-         r_type=$(dig +noall +answer "$2"."$1" | awk '{print $4}')
-         echo "The subdomain $2 is a $r_type record and points to $ip"
-    fi
+    echo -n "The subdomain $1 is a "
 }
 
-dig_domain $1 $2
-
+if [ $# -eq 1 ]; then
+    for domain in "${sdomains[@]}"
+    do
+        dig_domain $domain
+        dig +noall +answer "$domain"."$1" | awk '{print $4" record and points to " $5}'
+    done
+else
+    dig_domain $2
+    dig +noall +answer "$2"."$1" | awk '{print $4" record and points to " $5}'
+    
+fi
