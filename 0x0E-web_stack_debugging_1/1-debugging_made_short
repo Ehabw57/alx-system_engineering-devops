@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
 # Inastal nginx and start it's service
+apt-get update -y
 apt-get install nginx -y 
 service nginx start
