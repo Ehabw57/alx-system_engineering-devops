@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+# I Love web servers 
+
+sudo apt-get -y update
+sudo apt-get -y install nginx
+sudo ufw allow 'Nginx HTTP'
+sudo service nginx start
+
+config="server {
+	listen 80 default_server;
+	listen [::]:80 default_server;
+
+	root /var/www/html;
+	index index.html index.htm index.nginx-debian.html;
+
+	server_name _;
+
+	location /redirect_me {
+		return 301 https://www.behance.net/EHABABDELRADY57;
+	}
+}"
+
+echo "Hello World!" > /var/www/html/index.nginx-debian.html
+
+echo "$config" > /etc/nginx/sites-available/default
+sudo service nginx restart
