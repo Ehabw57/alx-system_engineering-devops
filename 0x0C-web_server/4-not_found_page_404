@@ -1,0 +1,33 @@
+#!/usr/bin/env bash
+# Bash script that configures a new Ubuntu machine
+
+# Installation process
+sudo apt-get -y update
+sudo apt-get -y install nginx
+sudo ufw allow 'Nginx HTTP'
+sudo service nginx start
+
+configs="server {
+	listen 80 default_server;
+	listen [::]:80 default_server;
+
+	root /var/www/html;
+	index index.html index.htm index.nginx-debian.html;
+
+	server_name _;
+
+	location /redirect_me {
+		return 301 https://www.behance.net/EHABABDELRADY57;
+	}
+
+	error_page 404 /404.html;
+	location = /404.html {
+	root /var/www/html;
+	internal; 
+	}
+}"
+
+echo "Hello World!" > /var/www/html/index.nginx-debian.html
+echo "$configs" > /etc/nginx/sites-available/default
+echo "Ceci n'est pas une page" > /var/www/html/404.html
+sudo service nginx restart
