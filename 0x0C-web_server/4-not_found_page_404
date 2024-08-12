@@ -29,5 +29,5 @@ configs="server {
 
 echo "Hello World!" > /var/www/html/index.nginx-debian.html
 echo "$configs" > /etc/nginx/sites-available/default
-echo "Ceci n'est pas une page" > /var/www/html/404.html
+echo -e "Ceci n'est pas une page\n" > /var/www/html/404.html
 sudo service nginx restart
