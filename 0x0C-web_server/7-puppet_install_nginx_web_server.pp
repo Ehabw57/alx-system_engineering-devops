@@ -38,7 +38,7 @@ file {"/var/www/html/404.html":
 
 file {"/var/www/html/index.html":
 	ensure => file,
-	content => "Hello World!\n",
+	content => "Hello World!",
 }
 
 file {"/etc/nginx/sites-available/default":
