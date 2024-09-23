@@ -12,6 +12,6 @@ if __name__ == "__main__":
     response = requests.get(f"{url}users/{userid}").json()
     name = response.get("name")
     response = requests.get(f"{url}todos", params={"userId": userid}).json()
-    completed = ["\t" + task["title"] for task in response if task["completed"]]
+    completed = ["\t " + task["title"] for task in response if task["completed"]]
     print("Employee {} is done with tasks({}/{}):\n"
           .format(name, len(completed), len(response)) + "\n".join(completed))
