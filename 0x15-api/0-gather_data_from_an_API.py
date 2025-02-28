@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 """ Gather data from an API """
 if __name__ == "__main__":
-    from sys import argv
     import requests
+    from sys import argv
 
     if not argv[1].isdigit():
         exit()
