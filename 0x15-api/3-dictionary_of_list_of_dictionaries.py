@@ -7,9 +7,10 @@ if __name__ == "__main__":
     url = "https://jsonplaceholder.typicode.com"
     all_tasks = requests.get(f"{url}/todos").json()
     data = {}
+    users = requests.get(f"{url}/users").json()
     for task in all_tasks:
         userId = str(task['userId'])
-        name = requests.get(f"{url}/users/{userId}").json()["username"]
+        name = (users[int(userId) - 1])['username']
         if not data.get(userId):
             data[userId] = []
         data[userId].append({
